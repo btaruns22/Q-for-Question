@@ -40,7 +40,7 @@ CREATE TABLE Question(
     QuestionID varchar(255),
     Question varchar(255),
     ClassID varchar(255),
-    LectureID varchar(255),first_name
+    LectureID varchar(255),
     Starred BOOLEAN,
     Anonymous BOOLEAN,
     PRIMARY KEY (QuestionID),
