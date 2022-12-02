@@ -34,8 +34,11 @@ db_connection.init_app(app)
 # the URL / 
 @app.route("/")
 def hello_world():
-    return f'<h1>Hello From the Flask-MySQL Connection Tutorial</h1>'
+    return f'<h1>Q for Question</h1>'
 
+@app.route("/logo")
+def logo_test():
+    return f'<h2>/kw fȯr ?/</h2>'
 
 @app.route('/db_test')
 def db_testing():
@@ -47,6 +50,33 @@ def db_testing():
    for row in theData:
        json_data.append(dict(zip(row_headers, row)))
    return jsonify(json_data)
+
+# This route will handle the user going to /users/<some_id>
+@app.route("/users/<idNumber>")
+def handle_user_with_id(idNumber):
+    cur = db_connection.get_db().cursor()
+    cur.execute('select * FROM Lecture where ClassID = '+ idNumber  +'')
+    row_headers = [x[0] for x in cur.description]
+    json_data = []
+    theData = cur.fetchall()
+    for row in theData:
+        json_data.append(dict(zip(row_headers, row)))
+    return jsonify(json_data)
+
+    #return f'<h2>You asked for {idNumber} id.'
+
+# This route will handle the user going to /users/<some_id>
+@app.route("/student/<classID>")
+def get_student_data(classID):
+    cur = db_connection.get_db().cursor()
+    cur.execute('select * FROM Student where ClassID = '+ classID +'')
+    row_headers = [x[0] for x in cur.description]
+    json_data = []
+    theData = cur.fetchall()
+    for row in theData:
+        json_data.append(dict(zip(row_headers, row)))
+    return jsonify(json_data)
+
 
 @app.route('/form')
 def form():
