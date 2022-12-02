@@ -5,11 +5,11 @@ views = Blueprint('views', __name__)
 # This is a base route
 # we simply return a string.  
 @views.route('/')
-def home():
-    return ('<h1>Hello from your web app!!</h1>')
+def hello_world():
+    return f'<h1>Q for Question</h1>'
 
 # This is a sample route for the /test URI.  
 # as above, it just returns a simple string. 
-@views.route('/test')
-def tester():
-    return "<h1>this is a test!</h1>"
+@views.route("/logo")
+def logo_test():
+    return f'<h2>/kw fȯr ?/</h2>'

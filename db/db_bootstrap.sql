@@ -1,8 +1,8 @@
 CREATE DATABASE cool_db;
-CREATE USER 'webapp'@'%' IDENTIFIED BY 'abc123';
 GRANT ALL PRIVILEGES ON cool_db.* TO 'webapp'@'%';
 FLUSH PRIVILEGES;
 
+-- grant all privileges on cool_db.* to 'webapp'@'%';
 
 USE cool_db;
 
