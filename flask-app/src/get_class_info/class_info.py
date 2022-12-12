@@ -45,3 +45,15 @@ def get_student_data(classID):
     for row in theData:
         json_data.append(dict(zip(row_headers, row)))
     return jsonify(json_data)
+
+
+@class_blueprint.route("q&a/<lectureId>")
+def getQandA(lectureId):
+    cur = db.get_db().cursor()
+    cur.execute('select * FROM Lecture natural join Question natural join Asking natural join Answer where LectureID = (%s)', lectureId)
+    row_headers = [x[0] for x in cur.description]
+    json_data = []
+    theData = cur.fetchall()
+    for row in theData:
+        json_data.append(dict(zip(row_headers, row)))
+    return jsonify(json_data)
