@@ -38,6 +38,7 @@ CREATE TABLE Question(
     LectureID varchar(255),
     Starred BOOLEAN,
     Anonymous BOOLEAN,
+    StudentName varchar(255),
     PRIMARY KEY (QuestionID),
     FOREIGN KEY (ClassID) References Class(ClassID),
     FOREIGN KEY (LectureID) REFERENCES Lecture(LectureID)
@@ -85,10 +86,10 @@ insert into Lecture (LectureID, ClassID, Topic) values ('637edf68fc13ae198a0002a
 insert into Lecture (LectureID, ClassID, Topic) values ('637edf68fc13ae198a0002ae', 1, 'DBMS');
 insert into Lecture (LectureID, ClassID, Topic) values ('637edf68fc13ae198a0002b0', 1, 'Flask API');
 
-insert into Question (QuestionID, Question, ClassID, LectureID, Starred, Anonymous) values ('637edf68fc13ae198a0002a9', 'What is...?', 1, '637edf68fc13ae198a0002aa', false, true);
-insert into Question (QuestionID, Question, ClassID, LectureID, Starred, Anonymous) values ('637edf68fc13ae198a0002ab', 'What is...?', 1, '637edf68fc13ae198a0002ac', false, true);
-insert into Question (QuestionID, Question, ClassID, LectureID, Starred, Anonymous) values ('637edf68fc13ae198a0002ad', 'What is...?', 1, '637edf68fc13ae198a0002ae', true, false);
-insert into Question (QuestionID, Question, ClassID, LectureID, Starred, Anonymous) values ('637edf68fc13ae198a0002af', 'What is...?', 1, '637edf68fc13ae198a0002b0', false, true);
+insert into Question (QuestionID, Question, ClassID, LectureID, Starred, Anonymous, StudentName) values ('637edf68fc13ae198a0002a9', 'What is...?', 1, '637edf68fc13ae198a0002aa', false, true, 'Joe');
+insert into Question (QuestionID, Question, ClassID, LectureID, Starred, Anonymous, StudentName) values ('637edf68fc13ae198a0002ab', 'What is...?', 1, '637edf68fc13ae198a0002ac', false, true, 'John');
+insert into Question (QuestionID, Question, ClassID, LectureID, Starred, Anonymous, StudentName) values ('637edf68fc13ae198a0002ad', 'What is...?', 1, '637edf68fc13ae198a0002ae', true, false, 'James');
+insert into Question (QuestionID, Question, ClassID, LectureID, Starred, Anonymous, StudentName) values ('637edf68fc13ae198a0002af', 'What is...?', 1, '637edf68fc13ae198a0002b0', false, true, 'Melita');
 
 
 insert into Asking (AskID, StudentID, QuestionID) values ('637edff8fc13ae3eb9000028', '637edebdfc13ae57df000118', '637edf68fc13ae198a0002a9');

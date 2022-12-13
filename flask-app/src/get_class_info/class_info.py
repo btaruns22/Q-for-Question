@@ -3,6 +3,9 @@ from flask import Flask, jsonify, request, render_template
 from flaskext.mysql import MySQL
 from flask import Blueprint
 from src import db
+from flask import current_app, request
+import random
+import string
 
 class_blueprint = Blueprint('class_blueprint', __name__)
 
@@ -57,3 +60,26 @@ def getQandA(lectureId):
     for row in theData:
         json_data.append(dict(zip(row_headers, row)))
     return jsonify(json_data)
+
+
+@class_blueprint.route("/form", methods=['POST'])
+def add_question():
+    current_app.logger.info(request.form)
+    cursor = db.get_db().cursor()
+    question = request.form['question']
+    ClassID = request.form['ClassID']
+    LectureID = request.form['LectureID']
+    Anonymous = request.form['Anonymous']
+    StudentName = request.form['StudentName']
+    if(Anonymous == 1):
+        StudentName = "Anonymous Student"
+    query = f'insert into Question (QuestionID, Question, ClassID, LectureID, Starred, Anonymous, StudentName) values ({random.randint(0, 10000000000000000000)}, \"{question}\", \"{ClassID}\", \"{LectureID}\", 0, \"{Anonymous}\", \"{StudentName}\");'
+    cursor.execute(query)
+    db.get_db().commit()
+    return 'Success'
+
+
+
+
+
+
