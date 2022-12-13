@@ -80,6 +80,20 @@ def add_question():
 
 
 
+@class_blueprint.route("answer/form", methods=['POST'])
+def add_answer():
+    current_app.logger.info(request.form)
+    cursor = db.get_db().cursor()
+    answer = request.form['Answer']
+    questionid = request.form['QuestionID']
+    responderName = request.form['ResponderName']
+    answerid = random.randint(0, 10000000000000000000)
+    answerQuery = f'insert into Answer (AnswerID, Answer, ResponderName, QuestionID) values (\'{answerid}\', \'{answer}\', \'{responderName} \', \'{questionid}\');'
+    cursor.excute(answerQuery)
+    db.get_db().commit()
+    return 'Success'
+
+
 
 
 
