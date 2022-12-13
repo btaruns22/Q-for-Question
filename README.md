@@ -23,7 +23,7 @@ This repo contains a boilerplate setup for spinning up 2 docker containers:
 
 # Q for Question Overview
 
-[![Q for Question Overview!](https://img.youtube.com/vi/ISZbOyt18_k/default.jpg)](https://www.youtube.com/watch?v=ISZbOyt18_k&ab_channel=TarunBadarvada)
+[![Q for Question Overview Video Link Here!](https://img.youtube.com/vi/ISZbOyt18_k/default.jpg)](https://www.youtube.com/watch?v=ISZbOyt18_k&ab_channel=TarunBadarvada)
 
 
 
