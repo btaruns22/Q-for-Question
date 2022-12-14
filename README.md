@@ -1,5 +1,6 @@
 # Q for Question Overview
 
+Click here for the Video 
 [![Q for Question Overview Video Link Here!](https://img.youtube.com/vi/ISZbOyt18_k/default.jpg)](https://www.youtube.com/watch?v=ISZbOyt18_k&ab_channel=TarunBadarvada)
 
 # What is Q for Question?
